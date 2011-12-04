@@ -1,0 +1,11 @@
+production:
+  host: localhost
+  database: forkmebadge
+
+development:
+  host: localhost
+  database: forkmebadge
+
+test:
+  host: localhost
+  database: forkmebadge
