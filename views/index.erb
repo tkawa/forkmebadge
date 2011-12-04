@@ -1,2 +1,7 @@
 <h1>Fork Me Badge</h1>
 <p>main</p>
+<% if @auth %>
+    <p><%= @auth %>で認証できたよ！</p>
+<% else %>
+    <p><a href="/auth/github">sign in with GitHub</a></p>
+<% end %>
