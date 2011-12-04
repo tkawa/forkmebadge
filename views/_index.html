@@ -1,4 +1,4 @@
-<html>
+	<html>
 <head>
 	
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -67,6 +67,7 @@
 		width: 220px;
 		height: 586px;
 		background: url(../public/images/menuR_bg.jpg) no-repeat;
+		padding: 40px 0 0 10px;
 	}
 	.nav-wrap {
 		position: absolute;
@@ -175,7 +176,7 @@
 	}
 	.arw-badge-l,
 	.arw-badge-r {
-		position: absolute;
+		position: fixed;
 		z-index: 9999;
 	}
 	.source-view {
@@ -190,88 +191,8 @@
 		width: 280px;
 		height: 130px;
 	}
-	.fill {
-		background: aqua;
-	}
 	</style>
 	<script type="text/javascript"><!--
-	$(function() {
-		$('.radio-pos').click(function() {
-	  		updateBadge();
-		});
-		
-		$("form :input").focus(function() {
-			$(this).addClass('focus');
-	  		updateBadge();
-		});
-		
-		$("form :input").blur(function() {
-			$(this).removeClass('focus');
-	  		updateBadge();
-		});
-		
-
-	  	function updateBadge() {
-	  		var posTop = $('#posTop').val();
-	  		var pos = $('.radio-pos:checked').val();
-	  		var color = $('#color').val();
-	  		var account = $('#account').val();
-			o.account = account;
-			o.color = color;
-			o.side = pos;
-			o.top = posTop;
-			o.showbadge();
-			reposArw();
-	  	}
-	  	updateBadge();
-	  	
-	  	//$('.source-view').fadeOut();
-  		$('.b_source').click(function() {
-  			viewSource();
-			return false;
-		});
-  		$('.b_close').click(function() {
-	  		$('.source-view').fadeOut();
-	  		$('.source-add').fadeIn();
-			return false;
-		});
-	  	function viewSource() {
-	  		var posTop = $('#posTop').val();
-	  		var pos = $('.radio-pos:checked').val();
-	  		var color = $('#color').val();
-	  		var account = $('#account').val();
-	  		
-	  		$('.source-add').fadeOut();
-	  		$('.source-view').fadeIn();
-	  		
-			var codeStr = "";
-			codeStr += "<script src='../public/badge.js' type='text/javascript'></script>";
-			codeStr += "<script type='text/javascript' charset='utf-8'><!--\n";
-			codeStr += "o.account = 'xxx';o.color = '#"+color+"';o.side = '"+pos+"';o.top = "+posTop+";o.showbadge();";
-			codeStr += "--><\/script>\n";
-			$("#regularTextarea").val(codeStr);
-	  		
-	  	}
-  		$('.source-view').fadeOut(0);
-  		
-	  	function reposArw() {
-	  		var posTop = $('#posTop').val();
-	  		var pos = $('.radio-pos:checked').val();
-	  		
-			$('.arw-badge-r').fadeOut(0);
-			$('.arw-badge-l').fadeOut(0);
-	  		if(pos == "r") {
-	  			$('.arw-badge-r').css('top', parseInt(posTop)+50);
-	  			$('.arw-badge-r').css('right', 60);
-		  		$('.arw-badge-r').fadeIn();
-	  		} else {
-	  			$('.arw-badge-l').css('top', parseInt(posTop)+50);
-	  			$('.arw-badge-l').css('left', 60);
-		  		$('.arw-badge-l').fadeIn();
-	  		}
-	  	}
-	  	
-	});
 	// --></script>
 
 </head>
@@ -317,6 +238,7 @@
 			</div>
 			
 		</div>
+		
 	</div>
 </div><!-- /topbar -->
 
@@ -465,13 +387,18 @@
 		</ul>
 	</div>
 	<div class="four columns">
-		<div class="menuR mt20"></div>
+		<div class="menuR mt20">
+		<ul>
+			<li><a href="#"><img src="../public/images/bnr3.gif" alt="" width="200" height="60" class="fade" /></a></li>
+		</ul>
+		
+		</div>
 	</div>
 </div><!-- contents -->
 </div><!-- container -->
 
 <div class="footer">
-	© 2011 <a href="http://twitter.com/#!/search?q=%23p4dhack" target="_blank">#p4dhack</a>, <a href="http://twitter.com/#!/tkawa" target="_blank">@tkawa</a>, <a href="http://twitter.com/#!/hmbrw" target="_blank">@hmbrw</a>
+	© 2011 <a href="http://twitter.com/#!/search?q=%23p4dhack" target="_blank">#p4dhack</a>
 </div>
 
 <script src='../public/badge.js' type='text/javascript'></script>

@@ -1,3 +1,82 @@
+	$(function() {
+		$('.radio-pos').click(function() {
+	  		updateBadge();
+		});
+		
+		$("form :input").focus(function() {
+			$(this).addClass('focus');
+	  		updateBadge();
+		});
+		
+		$("form :input").blur(function() {
+			$(this).removeClass('focus');
+	  		updateBadge();
+		});
+		
+	  	function updateBadge() {
+	  		var posTop = $('#posTop').val();
+	  		var pos = $('.radio-pos:checked').val();
+	  		var color = $('#color').val();
+	  		var account = $('#account').val();
+			o.account = account;
+			o.color = color;
+			o.side = pos;
+			o.top = posTop;
+			o.showbadge();
+			reposArw();
+	  	}
+	  	updateBadge();
+	  	
+	  	//$('.source-view').fadeOut();
+  		$('.b_source').click(function() {
+  			viewSource();
+			return false;
+		});
+  		$('.b_close').click(function() {
+	  		$('.source-view').fadeOut();
+	  		$('.source-add').fadeIn();
+			return false;
+		});
+	  	function viewSource() {
+	  		var posTop = $('#posTop').val();
+	  		var pos = $('.radio-pos:checked').val();
+	  		var color = $('#color').val();
+	  		var account = $('#account').val();
+	  		
+	  		$('.source-add').fadeOut();
+	  		$('.source-view').fadeIn();
+	  		
+			var codeStr = "";
+			codeStr += "<script src='http://forkmebadge.heroku.com/badge.js' type='text/javascript'></script>";
+			codeStr += "<script type='text/javascript' charset='utf-8'><!--";
+			codeStr += "o.account = 'xxx';o.color = '#"+color+"';o.side = '"+pos+"';o.top = "+posTop+";o.showbadge();";
+			codeStr += "--></script>";
+			$("#regularTextarea").val(codeStr);
+	  		
+	  	}
+  		$('.source-view').fadeOut(0);
+  		
+	  	function reposArw() {
+	  		var posTop = $('#posTop').val();
+	  		var pos = $('.radio-pos:checked').val();
+	  		
+			$('.arw-badge-r').fadeOut(0);
+			$('.arw-badge-l').fadeOut(0);
+	  		if(pos == "r") {
+	  			$('.arw-badge-r').css('top', parseInt(posTop)+50);
+	  			$('.arw-badge-r').css('right', 60);
+		  		$('.arw-badge-r').fadeIn();
+	  		} else {
+	  			$('.arw-badge-l').css('top', parseInt(posTop)+50);
+	  			$('.arw-badge-l').css('left', 60);
+		  		$('.arw-badge-l').fadeIn();
+	  		}
+	  	}
+	});
+
+
+
+
 
 
 /* iPhoneêUÇËï™ÇØ
@@ -60,7 +139,8 @@ $(function(){
 
 $(function(){
 	$('.fade').hover(
-		function() { $(this).fadeTo(100, 0.5); $(this).fadeTo(300, 1.0); }
+		function() { $(this).fadeTo(10, 0.2); $(this).fadeTo(300, 1); },
+		function() {}
 	);
 });
 
