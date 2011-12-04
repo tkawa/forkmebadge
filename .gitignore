@@ -4,4 +4,5 @@ bundle/
 tmp/
 .rvmrc
 .DS_Store
+development.db
 
