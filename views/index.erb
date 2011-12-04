@@ -284,7 +284,11 @@
 	<h1>Fork Me</h1>
 	<div class="nav-wrap">
 		<ul class="tabs">
-			<li><a href="/auth/github">singn in on github</a></li>
+            <% if @user %>
+            <li><a href="#"><%= @user.screen_name %></a></li>
+            <% else %>
+			<li><a href="/auth/github">sign in with github</a></li>
+            <% end %>
 			<li><a href="#" class="active">visitor</a></li>
 			<li><a href="#">about</a></li>
 		</ul>

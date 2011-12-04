@@ -6,3 +6,6 @@ gem 'activerecord'
 gem 'sinatra-activerecord'
 gem 'sqlite3'
 gem 'rake'
+group :production do
+  gem 'pg'
+end
