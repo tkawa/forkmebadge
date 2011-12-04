@@ -2,6 +2,7 @@
 require 'sinatra'
 require 'sinatra/reloader' if development?
 require 'omniauth'
+require 'mongoid'
 
 ENV['RACK_ENV'] ||= 'development'
 configure do

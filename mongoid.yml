@@ -1,5 +1,5 @@
 production:
-  host: localhost
+  host: <%= ENV['MONGOHQ_URL'] %>
   database: forkmebadge
 
 development:
