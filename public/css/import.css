@@ -1,0 +1,12 @@
+@charset "shift_jis"; 
+
+/* import */
+@import "init.css";
+
+@import "../framework/skeleton/stylesheets/base.css";
+@import "../framework/skeleton/stylesheets/layout.css";
+@import "../framework/skeleton/stylesheets/skeleton.css";
+
+@import "common.css";
+/* @import "overwrite.css"; */
+
