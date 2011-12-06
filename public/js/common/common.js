@@ -48,9 +48,9 @@
 	  		
 			var codeStr = "";
 			codeStr += "<script src='http://forkmebadge.heroku.com/badge.js' type='text/javascript'></script>";
-			codeStr += "<script type='text/javascript' charset='utf-8'><!--";
-			codeStr += "o.account = 'xxx';o.color = '#"+color+"';o.side = '"+pos+"';o.top = "+posTop+";o.showbadge();";
-			codeStr += "--></script>";
+			codeStr += "<script type='text/javascript' charset='utf-8'>";
+			codeStr += "o.account = '"+account+"';o.color = '#"+color+"';o.side = '"+pos+"';o.top = "+posTop+";o.showbadge();";
+			codeStr += "</script>";
 			$("#regularTextarea").val(codeStr);
 	  		
 	  	}
