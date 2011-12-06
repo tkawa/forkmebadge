@@ -217,11 +217,12 @@
 	<div class="nav-wrap">
 		<ul class="tabs">
             <% if @user %>
-            <li><a href="#"><%= @user.screen_name %></a></li>
+            <li><a href="#" class="active"><img src="<%= @user.image %>" height="20" width="20"><%= @user.screen_name %></a></li>
+            <li><a href="#">visitor</a></li>
             <% else %>
 			<li><a href="/auth/github">sign in with github</a></li>
+            <li><a href="#" class="active">visitor</a></li>
             <% end %>
-			<li><a href="#" class="active">visitor</a></li>
 			<li><a href="#">about</a></li>
 		</ul>
 	</div>

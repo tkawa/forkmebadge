@@ -3,6 +3,8 @@ require 'sinatra'
 require 'sinatra/reloader' if development?
 require 'active_record'
 require 'sinatra/activerecord'
+require 'open-uri'
+require 'json'
 
 ENV['RACK_ENV'] ||= 'development'
 
@@ -35,13 +37,19 @@ end
 get '/' do
   if session[:user_id]
     @user = User.find(session[:user_id])
+    if @user.image == ""
+      json = URI("https://api.github.com/users/#{@user.screen_name}").read
+      data = JSON.parse(json)
+      @user.image = data['avatar_url']
+      @user.save!
+    end
   end
   erb :index
 end
 
 get '/auth/github/callback' do
   auth = request.env['omniauth.auth']
-  user = User.find_by_provider_and_uid(auth['provider'], auth['uid']) || User.create_with_omniauth(auth)
+  user = User.find_by_provider_and_uid(auth['provider'], auth['uid'].to_s) || User.create_with_omniauth(auth)
   session[:user_id] = user.id
   #flash[:notice] = 'Signed in.'
   redirect '/'
